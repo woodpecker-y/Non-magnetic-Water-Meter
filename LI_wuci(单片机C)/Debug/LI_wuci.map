@@ -1,0 +1,737 @@
+******************************************************************************
+                  MSP430 Linker PC v4.2.1                      
+******************************************************************************
+>> Linked Thu May 21 14:54:25 2015
+
+OUTPUT FILE NAME:   <LI_wuci.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00008bcc
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000400  00000079  00000387  RWIX
+  INFOB                 00001000   00000080  00000000  00000080  RWIX
+  INFOA                 00001080   00000080  00000000  00000080  RWIX
+  FLASH                 00008000   00007fe0  00000dd4  0000720c  RWIX
+  INT00                 0000ffe0   00000002  00000002  00000000  RWIX
+  INT01                 0000ffe2   00000002  00000002  00000000  RWIX
+  INT02                 0000ffe4   00000002  00000000  00000002  RWIX
+  INT03                 0000ffe6   00000002  00000000  00000002  RWIX
+  INT04                 0000ffe8   00000002  00000002  00000000  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000000  00000002  RWIX
+  INT08                 0000fff0   00000002  00000000  00000002  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.init_array 
+*          0    00008000    00000000     UNINITIALIZED
+
+.data      0    00000200    0000001e     UNINITIALIZED
+                  00000200    00000012     LCD.obj (.data:segTable)
+                  00000212    0000000c     Frame.obj (.data)
+
+.TI.persistent 
+*          0    00000200    00000000     UNINITIALIZED
+
+.bss       0    0000021e    0000000b     UNINITIALIZED
+                  0000021e    00000004     (.common:I2Cbuff)
+                  00000222    00000004     (.common:WaterVolume)
+                  00000226    00000002     (.common:RXTXData)
+                  00000228    00000001     (.common:BitCnt)
+
+.TI.noinit 
+*          0    0000021e    00000000     UNINITIALIZED
+
+.stack     0    000005b0    00000050     UNINITIALIZED
+                  000005b0    00000002     rts430_eabi.lib : boot.obj (.stack)
+                  000005b2    0000004e     --HOLE--
+
+.text      0    00008000    00000d86     
+                  00008000    000001c2     DISPLAY.obj (.text:LCD_DisplayWaterVolume)
+                  000081c2    0000014c     Frame.obj (.text:Frame_Work)
+                  0000830e    000000b8     AT24C64.obj (.text:I2C_24C64_Read)
+                  000083c6    000000b8     main.obj (.text:Timer_A)
+                  0000847e    000000a6     ScanIF.obj (.text:ScanIF_Init)
+                  00008524    00000090     AT24C64.obj (.text:I2C_24C64_Write)
+                  000085b4    0000008e     main.obj (.text:ScanIF_ISR)
+                  00008642    00000078     Frame.obj (.text:Frame_Get)
+                  000086ba    00000060     I2C.obj (.text:I2C_WriteByte)
+                  0000871a    0000005e     rts430_eabi.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  00008778    0000005e                     : autoinit.obj (.text:_auto_init)
+                  000087d6    0000005c                     : lsr32.obj (.text:l_lsr_const)
+                  00008832    00000058                     : div32u.obj (.text)
+                  0000888a    00000056     Init.obj (.text:GPIO_Init)
+                  000088e0    00000042     Frame.obj (.text:Write_WaterVolume)
+                  00008922    00000040     Frame.obj (.text:Read_WaterVolume)
+                  00008962    0000003e     LCD.obj (.text:LCD_Init)
+                  000089a0    0000003e     rts430_eabi.lib : lsl32.obj (.text:l_lsl_const)
+                  000089de    00000034     main.obj (.text:BT_IRQ)
+                  00008a12    00000034     UART.obj (.text:TX_Ready)
+                  00008a46    00000032     I2C.obj (.text:I2C_Init)
+                  00008a78    0000002e     Init.obj (.text:MSP430_Init)
+                  00008aa6    0000002c     I2C.obj (.text:I2C_ReadByte)
+                  00008ad2    0000002c     Motor.obj (.text:Motor_Close)
+                  00008afe    0000002c     Motor.obj (.text:Motor_Open)
+                  00008b2a    0000002a     Comparator_A.obj (.text:CMPA_Init)
+                  00008b54    00000026     Motor.obj (.text:Motor_Init)
+                  00008b7a    0000001e     UART.obj (.text:UART_Init)
+                  00008b98    0000001a     BasicTimer.obj (.text:BT_Init)
+                  00008bb2    0000001a     main.obj (.text:CMP_ISR)
+                  00008bcc    0000001a     rts430_eabi.lib : boot.obj (.text:_c_int00_noexit)
+                  00008be6    00000018     I2C.obj (.text:I2C_Start)
+                  00008bfe    00000018     I2C.obj (.text:I2C_Stop)
+                  00008c16    00000018     main.obj (.text:main)
+                  00008c2e    00000016     Comparator_A.obj (.text:CMPA_Enable)
+                  00008c44    00000014     rts430_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  00008c58    00000014                     : memset.obj (.text:memset)
+                  00008c6c    00000012     I2C.obj (.text:Delay_I2C)
+                  00008c7e    00000012     Motor.obj (.text:Motor_Stop)
+                  00008c90    00000012     Init.obj (.text:System_Init)
+                  00008ca2    00000012     UART.obj (.text:TX_Byte)
+                  00008cb4    00000012     rts430_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  00008cc6    00000012                     : memcpy.obj (.text:memcpy)
+                  00008cd8    00000010     I2C.obj (.text:I2C_ACK)
+                  00008ce8    00000010     I2C.obj (.text:I2C_NoACK)
+                  00008cf8    00000010     rts430_eabi.lib : epilog.obj (.text)
+                  00008d08    0000000e     Comparator_A.obj (.text:CMPA_Disable)
+                  00008d16    0000000e     I2C.obj (.text:I2C_SDA_Read)
+                  00008d24    0000000c     UART.obj (.text:RX_Ready)
+                  00008d30    0000000a     AT24C64.obj (.text:I2C_24C64_Init)
+                  00008d3a    00000008     Comparator_A.obj (.text:CMPA_Read_CAOUT)
+                  00008d42    00000008     I2C.obj (.text:I2C_SCL_H)
+                  00008d4a    00000008     I2C.obj (.text:I2C_SCL_L)
+                  00008d52    00000008     I2C.obj (.text:I2C_SDA_H)
+                  00008d5a    00000008     I2C.obj (.text:I2C_SDA_L)
+                  00008d62    00000008     I2C.obj (.text:I2C_WP_H)
+                  00008d6a    00000008     I2C.obj (.text:I2C_WP_L)
+                  00008d72    00000006     rts430_eabi.lib : isr_trap.obj (.text:__TI_ISR_TRAP)
+                  00008d78    00000006                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  00008d7e    00000004                     : pre_init.obj (.text:_system_pre_init)
+                  00008d82    00000004                     : exit.obj (.text:abort)
+
+.const     0    00008d86    00000020     
+                  00008d86    00000020     ScanIF.obj (.const:.string:PSM)
+
+.cinit     0    00008da6    0000002e     
+                  00008da6    0000001b     (.cinit..data.load) [load image, compression = rle]
+                  00008dc1    00000001     --HOLE-- [fill = 0]
+                  00008dc2    00000006     (__TI_handler_table)
+                  00008dc8    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008dcc    00000008     (__TI_cinit_table)
+
+BASICTIMER 
+*          0    0000ffe0    00000002     
+                  0000ffe0    00000002     main.obj (.int00)
+
+PORT2      0    0000ffe2    00000002     
+                  0000ffe2    00000002     rts430_eabi.lib : int01.obj (.int01)
+
+PORT1      0    0000ffe8    00000002     
+                  0000ffe8    00000002     rts430_eabi.lib : int04.obj (.int04)
+
+TIMER0_A1 
+*          0    0000ffea    00000002     
+                  0000ffea    00000002     rts430_eabi.lib : int05.obj (.int05)
+
+TIMER0_A0 
+*          0    0000ffec    00000002     
+                  0000ffec    00000002     main.obj (.int06)
+
+SCANIF     0    0000fff2    00000002     
+                  0000fff2    00000002     main.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     rts430_eabi.lib : int10.obj (.int10)
+
+COMPARATORA 
+*          0    0000fff6    00000002     
+                  0000fff6    00000002     main.obj (.int11)
+
+TIMER1_A1 
+*          0    0000fff8    00000002     
+                  0000fff8    00000002     rts430_eabi.lib : int12.obj (.int12)
+
+TIMER1_A0 
+*          0    0000fffa    00000002     
+                  0000fffa    00000002     rts430_eabi.lib : int13.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     rts430_eabi.lib : int14.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430_eabi.lib : boot.obj (.reset)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00008dcc records: 2, size/record: 4, table size: 8
+	.data: load addr=00008da6, load size=0000001b bytes, run addr=00000200, run size=0000001e bytes, compression=rle
+	.bss: load addr=00008dc8, load size=00000004 bytes, run addr=0000021e, run size=0000000b bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00008dc2 records: 3, size/record: 2, table size: 6
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000046   BTCNT1
+00000047   BTCNT2
+00000040   BTCTL
+000089de   BT_IRQ
+00008b98   BT_Init
+00000228   BitCnt
+00008d82   C$$EXIT
+00000059   CACTL1
+0000005a   CACTL2
+0000005b   CAPD
+00008d08   CMPA_Disable
+00008c2e   CMPA_Enable
+00008b2a   CMPA_Init
+00008d3a   CMPA_Read_CAOUT
+00008bb2   CMP_ISR
+00008c6c   Delay_I2C
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+00000053   FLL_CTL0
+00000054   FLL_CTL1
+00008642   Frame_Get
+000081c2   Frame_Work
+0000888a   GPIO_Init
+00008d30   I2C_24C64_Init
+0000830e   I2C_24C64_Read
+00008524   I2C_24C64_Write
+00008cd8   I2C_ACK
+00008a46   I2C_Init
+00008ce8   I2C_NoACK
+00008aa6   I2C_ReadByte
+00008d42   I2C_SCL_H
+00008d4a   I2C_SCL_L
+00008d52   I2C_SDA_H
+00008d5a   I2C_SDA_L
+00008d16   I2C_SDA_Read
+00008be6   I2C_Start
+00008bfe   I2C_Stop
+00008d62   I2C_WP_H
+00008d6a   I2C_WP_L
+000086ba   I2C_WriteByte
+0000021e   I2Cbuff
+00000000   IE1
+00000001   IE2
+00000002   IFG1
+00000003   IFG2
+00000090   LCDCTL
+00000091   LCDM1
+0000009a   LCDM10
+0000009b   LCDM11
+0000009c   LCDM12
+0000009d   LCDM13
+0000009e   LCDM14
+0000009f   LCDM15
+000000a0   LCDM16
+000000a1   LCDM17
+000000a2   LCDM18
+000000a3   LCDM19
+00000092   LCDM2
+000000a4   LCDM20
+00000093   LCDM3
+00000094   LCDM4
+00000095   LCDM5
+00000096   LCDM6
+00000097   LCDM7
+00000098   LCDM8
+00000099   LCDM9
+00008000   LCD_DisplayWaterVolume
+00008962   LCD_Init
+00008a78   MSP430_Init
+00008ad2   Motor_Close
+00008b54   Motor_Init
+00008afe   Motor_Open
+00008c7e   Motor_Stop
+00000022   P1DIR
+00000025   P1IE
+00000024   P1IES
+00000023   P1IFG
+00000020   P1IN
+00000021   P1OUT
+00000026   P1SEL
+0000002a   P2DIR
+0000002d   P2IE
+0000002c   P2IES
+0000002b   P2IFG
+00000028   P2IN
+00000029   P2OUT
+0000002e   P2SEL
+0000001a   P3DIR
+00000018   P3IN
+00000019   P3OUT
+0000001b   P3SEL
+0000001e   P4DIR
+0000001c   P4IN
+0000001d   P4OUT
+0000001f   P4SEL
+00000032   P5DIR
+00000030   P5IN
+00000031   P5OUT
+00000033   P5SEL
+00000036   P6DIR
+00000034   P6IN
+00000035   P6OUT
+00000037   P6SEL
+00008d86   PSM
+00000226   RXTXData
+00008d24   RX_Ready
+00008922   Read_WaterVolume
+00000212   RxTx_Buffer
+00000050   SCFI0
+00000051   SCFI1
+00000052   SCFQCTL
+000001b2   SIFCNT
+000001b6   SIFCTL1
+000001b8   SIFCTL2
+000001ba   SIFCTL3
+000001bc   SIFCTL4
+000001be   SIFCTL5
+000001c0   SIFDACR0
+000001c2   SIFDACR1
+000001c4   SIFDACR2
+000001c6   SIFDACR3
+000001c8   SIFDACR4
+000001ca   SIFDACR5
+000001cc   SIFDACR6
+000001ce   SIFDACR7
+000001b0   SIFDEBUG
+000001b4   SIFPSMV
+000001d0   SIFTSM0
+000001d2   SIFTSM1
+000001e4   SIFTSM10
+000001e6   SIFTSM11
+000001e8   SIFTSM12
+000001ea   SIFTSM13
+000001ec   SIFTSM14
+000001ee   SIFTSM15
+000001f0   SIFTSM16
+000001f2   SIFTSM17
+000001f4   SIFTSM18
+000001f6   SIFTSM19
+000001d4   SIFTSM2
+000001f8   SIFTSM20
+000001fa   SIFTSM21
+000001fc   SIFTSM22
+000001fe   SIFTSM23
+000001d6   SIFTSM3
+000001d8   SIFTSM4
+000001da   SIFTSM5
+000001dc   SIFTSM6
+000001de   SIFTSM7
+000001e0   SIFTSM8
+000001e2   SIFTSM9
+00000056   SVSCTL
+000085b4   ScanIF_ISR
+0000847e   ScanIF_Init
+00008c90   System_Init
+00000172   TA0CCR0
+00000174   TA0CCR1
+00000176   TA0CCR2
+00000162   TA0CCTL0
+00000164   TA0CCTL1
+00000166   TA0CCTL2
+00000160   TA0CTL
+0000012e   TA0IV
+00000170   TA0R
+00000192   TA1CCR0
+00000194   TA1CCR1
+00000196   TA1CCR2
+00000198   TA1CCR3
+0000019a   TA1CCR4
+00000182   TA1CCTL0
+00000184   TA1CCTL1
+00000186   TA1CCTL2
+00000188   TA1CCTL3
+0000018a   TA1CCTL4
+00000180   TA1CTL
+0000011e   TA1IV
+00000190   TA1R
+00008ca2   TX_Byte
+00008a12   TX_Ready
+000083c6   Timer_A
+00008b7a   UART_Init
+00000120   WDTCTL
+00000222   WaterVolume
+000088e0   Write_WaterVolume
+00000600   __STACK_END
+00000050   __STACK_SIZE
+00008dcc   __TI_CINIT_Base
+00008dd4   __TI_CINIT_Limit
+00008dc2   __TI_Handler_Table_Base
+00008dc8   __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+00008d72   __TI_ISR_TRAP
+00000001   __TI_args_main
+00008cb4   __TI_decompress_none
+00008d78   __TI_decompress_rle24
+00000001   __TI_exit
+0000ffe0   __TI_int00
+0000ffe2   __TI_int01
+0000ffe8   __TI_int04
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff6   __TI_int11
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+00008c44   __TI_zero_init
+ffffffff   __binit__
+ffffffff   __c_args__
+00008832   __mspabi_divul
+00008d04   __mspabi_func_epilog_1
+00008d02   __mspabi_func_epilog_2
+00008d00   __mspabi_func_epilog_3
+00008cfe   __mspabi_func_epilog_4
+00008cfc   __mspabi_func_epilog_5
+00008cfa   __mspabi_func_epilog_6
+00008cf8   __mspabi_func_epilog_7
+00008832   __mspabi_remul
+000089d8   __mspabi_slll_1
+000089b4   __mspabi_slll_10
+000089b0   __mspabi_slll_11
+000089ac   __mspabi_slll_12
+000089a8   __mspabi_slll_13
+000089a4   __mspabi_slll_14
+000089a0   __mspabi_slll_15
+000089d4   __mspabi_slll_2
+000089d0   __mspabi_slll_3
+000089cc   __mspabi_slll_4
+000089c8   __mspabi_slll_5
+000089c4   __mspabi_slll_6
+000089c0   __mspabi_slll_7
+000089bc   __mspabi_slll_8
+000089b8   __mspabi_slll_9
+0000882a   __mspabi_srll_1
+000087f4   __mspabi_srll_10
+000087ee   __mspabi_srll_11
+000087e8   __mspabi_srll_12
+000087e2   __mspabi_srll_13
+000087dc   __mspabi_srll_14
+000087d6   __mspabi_srll_15
+00008824   __mspabi_srll_2
+0000881e   __mspabi_srll_3
+00008818   __mspabi_srll_4
+00008812   __mspabi_srll_5
+0000880c   __mspabi_srll_6
+00008806   __mspabi_srll_7
+00008800   __mspabi_srll_8
+000087fa   __mspabi_srll_9
+00008778   _auto_init
+00008bcc   _c_int00
+00008bcc   _c_int00_noexit
+0000fffe   _reset_vector
+000005b0   _stack
+00008d7e   _system_pre_init
+00008d82   abort
+ffffffff   binit
+00008c16   main
+00008cc6   memcpy
+00008c58   memset
+00000200   segTable
+0000021d   stepFlag
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   IE1
+00000001   IE2
+00000001   __TI_args_main
+00000001   __TI_exit
+00000002   IFG1
+00000003   IFG2
+00000018   P3IN
+00000019   P3OUT
+0000001a   P3DIR
+0000001b   P3SEL
+0000001c   P4IN
+0000001d   P4OUT
+0000001e   P4DIR
+0000001f   P4SEL
+00000020   P1IN
+00000021   P1OUT
+00000022   P1DIR
+00000023   P1IFG
+00000024   P1IES
+00000025   P1IE
+00000026   P1SEL
+00000028   P2IN
+00000029   P2OUT
+0000002a   P2DIR
+0000002b   P2IFG
+0000002c   P2IES
+0000002d   P2IE
+0000002e   P2SEL
+00000030   P5IN
+00000031   P5OUT
+00000032   P5DIR
+00000033   P5SEL
+00000034   P6IN
+00000035   P6OUT
+00000036   P6DIR
+00000037   P6SEL
+00000040   BTCTL
+00000046   BTCNT1
+00000047   BTCNT2
+00000050   SCFI0
+00000050   __STACK_SIZE
+00000051   SCFI1
+00000052   SCFQCTL
+00000053   FLL_CTL0
+00000054   FLL_CTL1
+00000056   SVSCTL
+00000059   CACTL1
+0000005a   CACTL2
+0000005b   CAPD
+00000090   LCDCTL
+00000091   LCDM1
+00000092   LCDM2
+00000093   LCDM3
+00000094   LCDM4
+00000095   LCDM5
+00000096   LCDM6
+00000097   LCDM7
+00000098   LCDM8
+00000099   LCDM9
+0000009a   LCDM10
+0000009b   LCDM11
+0000009c   LCDM12
+0000009d   LCDM13
+0000009e   LCDM14
+0000009f   LCDM15
+000000a0   LCDM16
+000000a1   LCDM17
+000000a2   LCDM18
+000000a3   LCDM19
+000000a4   LCDM20
+0000011e   TA1IV
+00000120   WDTCTL
+00000128   FCTL1
+0000012a   FCTL2
+0000012c   FCTL3
+0000012e   TA0IV
+00000160   TA0CTL
+00000162   TA0CCTL0
+00000164   TA0CCTL1
+00000166   TA0CCTL2
+00000170   TA0R
+00000172   TA0CCR0
+00000174   TA0CCR1
+00000176   TA0CCR2
+00000180   TA1CTL
+00000182   TA1CCTL0
+00000184   TA1CCTL1
+00000186   TA1CCTL2
+00000188   TA1CCTL3
+0000018a   TA1CCTL4
+00000190   TA1R
+00000192   TA1CCR0
+00000194   TA1CCR1
+00000196   TA1CCR2
+00000198   TA1CCR3
+0000019a   TA1CCR4
+000001b0   SIFDEBUG
+000001b2   SIFCNT
+000001b4   SIFPSMV
+000001b6   SIFCTL1
+000001b8   SIFCTL2
+000001ba   SIFCTL3
+000001bc   SIFCTL4
+000001be   SIFCTL5
+000001c0   SIFDACR0
+000001c2   SIFDACR1
+000001c4   SIFDACR2
+000001c6   SIFDACR3
+000001c8   SIFDACR4
+000001ca   SIFDACR5
+000001cc   SIFDACR6
+000001ce   SIFDACR7
+000001d0   SIFTSM0
+000001d2   SIFTSM1
+000001d4   SIFTSM2
+000001d6   SIFTSM3
+000001d8   SIFTSM4
+000001da   SIFTSM5
+000001dc   SIFTSM6
+000001de   SIFTSM7
+000001e0   SIFTSM8
+000001e2   SIFTSM9
+000001e4   SIFTSM10
+000001e6   SIFTSM11
+000001e8   SIFTSM12
+000001ea   SIFTSM13
+000001ec   SIFTSM14
+000001ee   SIFTSM15
+000001f0   SIFTSM16
+000001f2   SIFTSM17
+000001f4   SIFTSM18
+000001f6   SIFTSM19
+000001f8   SIFTSM20
+000001fa   SIFTSM21
+000001fc   SIFTSM22
+000001fe   SIFTSM23
+00000200   segTable
+00000212   RxTx_Buffer
+0000021d   stepFlag
+0000021e   I2Cbuff
+00000222   WaterVolume
+00000226   RXTXData
+00000228   BitCnt
+000005b0   _stack
+00000600   __STACK_END
+00008000   LCD_DisplayWaterVolume
+000081c2   Frame_Work
+0000830e   I2C_24C64_Read
+000083c6   Timer_A
+0000847e   ScanIF_Init
+00008524   I2C_24C64_Write
+000085b4   ScanIF_ISR
+00008642   Frame_Get
+000086ba   I2C_WriteByte
+00008778   _auto_init
+000087d6   __mspabi_srll_15
+000087dc   __mspabi_srll_14
+000087e2   __mspabi_srll_13
+000087e8   __mspabi_srll_12
+000087ee   __mspabi_srll_11
+000087f4   __mspabi_srll_10
+000087fa   __mspabi_srll_9
+00008800   __mspabi_srll_8
+00008806   __mspabi_srll_7
+0000880c   __mspabi_srll_6
+00008812   __mspabi_srll_5
+00008818   __mspabi_srll_4
+0000881e   __mspabi_srll_3
+00008824   __mspabi_srll_2
+0000882a   __mspabi_srll_1
+00008832   __mspabi_divul
+00008832   __mspabi_remul
+0000888a   GPIO_Init
+000088e0   Write_WaterVolume
+00008922   Read_WaterVolume
+00008962   LCD_Init
+000089a0   __mspabi_slll_15
+000089a4   __mspabi_slll_14
+000089a8   __mspabi_slll_13
+000089ac   __mspabi_slll_12
+000089b0   __mspabi_slll_11
+000089b4   __mspabi_slll_10
+000089b8   __mspabi_slll_9
+000089bc   __mspabi_slll_8
+000089c0   __mspabi_slll_7
+000089c4   __mspabi_slll_6
+000089c8   __mspabi_slll_5
+000089cc   __mspabi_slll_4
+000089d0   __mspabi_slll_3
+000089d4   __mspabi_slll_2
+000089d8   __mspabi_slll_1
+000089de   BT_IRQ
+00008a12   TX_Ready
+00008a46   I2C_Init
+00008a78   MSP430_Init
+00008aa6   I2C_ReadByte
+00008ad2   Motor_Close
+00008afe   Motor_Open
+00008b2a   CMPA_Init
+00008b54   Motor_Init
+00008b7a   UART_Init
+00008b98   BT_Init
+00008bb2   CMP_ISR
+00008bcc   _c_int00
+00008bcc   _c_int00_noexit
+00008be6   I2C_Start
+00008bfe   I2C_Stop
+00008c16   main
+00008c2e   CMPA_Enable
+00008c44   __TI_zero_init
+00008c58   memset
+00008c6c   Delay_I2C
+00008c7e   Motor_Stop
+00008c90   System_Init
+00008ca2   TX_Byte
+00008cb4   __TI_decompress_none
+00008cc6   memcpy
+00008cd8   I2C_ACK
+00008ce8   I2C_NoACK
+00008cf8   __mspabi_func_epilog_7
+00008cfa   __mspabi_func_epilog_6
+00008cfc   __mspabi_func_epilog_5
+00008cfe   __mspabi_func_epilog_4
+00008d00   __mspabi_func_epilog_3
+00008d02   __mspabi_func_epilog_2
+00008d04   __mspabi_func_epilog_1
+00008d08   CMPA_Disable
+00008d16   I2C_SDA_Read
+00008d24   RX_Ready
+00008d30   I2C_24C64_Init
+00008d3a   CMPA_Read_CAOUT
+00008d42   I2C_SCL_H
+00008d4a   I2C_SCL_L
+00008d52   I2C_SDA_H
+00008d5a   I2C_SDA_L
+00008d62   I2C_WP_H
+00008d6a   I2C_WP_L
+00008d72   __TI_ISR_TRAP
+00008d78   __TI_decompress_rle24
+00008d7e   _system_pre_init
+00008d82   C$$EXIT
+00008d82   abort
+00008d86   PSM
+00008dc2   __TI_Handler_Table_Base
+00008dc8   __TI_Handler_Table_Limit
+00008dcc   __TI_CINIT_Base
+00008dd4   __TI_CINIT_Limit
+0000ffe0   __TI_int00
+0000ffe2   __TI_int01
+0000ffe8   __TI_int04
+0000ffea   __TI_int05
+0000ffec   __TI_int06
+0000fff2   __TI_int09
+0000fff4   __TI_int10
+0000fff6   __TI_int11
+0000fff8   __TI_int12
+0000fffa   __TI_int13
+0000fffc   __TI_int14
+0000fffe   _reset_vector
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+
+[264 symbols]

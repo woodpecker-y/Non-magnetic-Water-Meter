@@ -1,0 +1,1 @@
+"./APP/main.obj" "./BSP/Motor.obj" "./BSP/Init.obj" "./BSP/Frame.obj" "./BSP/DISPLAY.obj" "./BSP/AT24C64.obj" "./SOURCE/UART.obj" "./SOURCE/ScanIF.obj" "./SOURCE/LCD.obj" "./SOURCE/I2C.obj" "./SOURCE/Comparator_A.obj" "./SOURCE/BasicTimer.obj" "../lnk_msp430fw427.cmd" -l"libc.a" 
